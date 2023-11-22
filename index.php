@@ -41,3 +41,28 @@
     ];
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+</head>
+<body>
+    <div class="container"> 
+        <div>
+            <?php foreach ($hotels as $hotel) {
+                foreach ($hotel as $key => $value) {
+                    ?>
+                    <div>
+                    <strong><?php echo $key ?> : </strong>
+                    <span><?php echo $value ?></span>
+                    </div>                    
+                    <?php
+            }
+         } ?>
+        </div>
+    </div>
+</body>
+</html>
