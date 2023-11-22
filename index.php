@@ -40,6 +40,9 @@ $hotels = [
 
 ];
 
+$searchFilter = strtolower($_GET['search'] ?? 'all') ;
+var_dump($searchFilter);
+
 ?>
 
 <!DOCTYPE html>
@@ -73,24 +76,23 @@ $hotels = [
                 </thead>
 
                 <tbody>
-                    <?php foreach ($hotels as $hotel) {
-                        foreach ($hotel as $key => $value);                       
+                    <?php 
+                        foreach ($hotels as $hotel) {
+                            if (($searchFilter === 'parking' && $hotel['parking'] === true) || $searchFilter === 'all') {                                                      
                     ?>
                         <tr>
                             <td><?php echo $hotel['name'] ?></td>
                             <td><?php echo $hotel['description'] ?></td>
-                            <?php if ($hotel['parking'] == true) {
-                                ?>
-                                <td>Si</td>
-                                <?php                            
-                        } else { ?>
-                            <td>No</td>
-                            <?php
-                        } ?>
+                            <?php if ($hotel['parking'] == true) { ?>
+                                <td>Yes</td>
+                            <?php } else { ?>
+                                <td>No</td>
+                            <?php } ?>
                             <td><?php echo $hotel['vote'] ?></td>
                             <td><?php echo $hotel['distance_to_center'] ?> Km</td>
                         </tr>
-                    <?php
+                        <?php
+                        }                      
                     }
                     ?>
                 </tbody>
