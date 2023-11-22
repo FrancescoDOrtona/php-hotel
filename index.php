@@ -55,6 +55,11 @@ $hotels = [
 
 <body class="bg-primary">
     <div class="container">
+        <div class="pt-4 pb-4">
+            <form action="index.php" method="get">
+                <input class="rounded-pill ps-2" type="search" name="search" id="search" placeholder="Search">
+            </form>
+        </div>
         <div>
             <table class="table table-dark table-striped">
                 <thead>
@@ -83,7 +88,7 @@ $hotels = [
                             <?php
                         } ?>
                             <td><?php echo $hotel['vote'] ?></td>
-                            <td><?php echo $hotel['distance_to_center'] ?></td>
+                            <td><?php echo $hotel['distance_to_center'] ?> Km</td>
                         </tr>
                     <?php
                     }
